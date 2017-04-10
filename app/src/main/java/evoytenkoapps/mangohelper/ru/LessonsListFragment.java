@@ -7,9 +7,8 @@ package evoytenkoapps.mangohelper.ru;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-//import android.support.annotation.Nullable;
+
 import android.support.v4.app.Fragment;
-//import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
@@ -19,23 +18,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-//import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
 import java.util.List;
-//import java.util.Random;
-//import android.content.*;
+
 import android.util.Log;
-//import android.app.backup.*;
-//import android.support.v4.content.*;
-//import android.widget.Toast;
-//import android.app.*;
 
 public class LessonsListFragment extends Fragment
 {
-    // Уроки
-    // static private Map<String,?> mLessonsKeys ;
-
     static RecyclerView rv;
 
 
@@ -64,7 +53,7 @@ public class LessonsListFragment extends Fragment
     // Задаем список уроков
     private List<String> getLessonsList()
     {
-        int amount=Lessons.sLessonsStrings.length;
+        int amount = Lessons.sLessonsStrings.length;
         ArrayList<String> list = new ArrayList<>(amount);
         while (list.size() < amount)
         {
@@ -91,13 +80,14 @@ public class LessonsListFragment extends Fragment
     }
 
 
-// Адаптер 
+    // Адаптер
     public static class SimpleStringRecyclerViewAdapter
-    extends RecyclerView.Adapter<SimpleStringRecyclerViewAdapter.ViewHolder>
+            extends RecyclerView.Adapter<SimpleStringRecyclerViewAdapter.ViewHolder>
     {
         private final TypedValue mTypedValue = new TypedValue();
         private int mBackground;
         private List<String> mValues;
+
         public static class ViewHolder extends RecyclerView.ViewHolder
         {
             // Номер урока, передается в webactivity
@@ -105,6 +95,7 @@ public class LessonsListFragment extends Fragment
             public final View mView;
             public final ImageView mImageView;
             public final TextView mTextView;
+
             public ViewHolder(View view)
             {
                 super(view);
@@ -137,7 +128,7 @@ public class LessonsListFragment extends Fragment
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
         {
             View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item, parent, false);
+                    .inflate(R.layout.list_item, parent, false);
             view.setBackgroundResource(mBackground);
             return new ViewHolder(view);
         }
@@ -148,7 +139,7 @@ public class LessonsListFragment extends Fragment
         {
             holder.mLessonNumber = position + 1;
             // Увеличиваем позицион на 1 что не было 0 урока
-            holder.mTextView.setText((position + 1) + " " + mValues.get(position));        
+            holder.mTextView.setText((position + 1) + " " + mValues.get(position));
             // Если урок пройден
             String finished = MainActivity.sPrefLessons.getString((position + 1) + "", "");
             if (finished.equals("1"))
@@ -160,31 +151,32 @@ public class LessonsListFragment extends Fragment
 //                    .fitCenter()
 //                    .into(holder.mImageView);
 //                Log.d("Glide", " Image Yes");
-                holder.mTextView.setTextColor(  R.color.black);
+                holder.mTextView.setTextColor(R.color.black);
                 holder.mImageView.setImageResource(R.drawable.ic_lessondone);
-            }
-            else
+            } else
             {
                 holder.mTextView.setTextColor(R.color.black);
                 holder.mImageView.setImageResource(R.color.transparent);
-                Log.d("Glide", "Image No");   
+                Log.d("Glide", "Image No");
 
             }
 
             // Вызов WebActivity
-            holder.mView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Context context = v.getContext();
-                        Intent intent = new Intent(context, WebActivity.class);
-                        // Передаем вебвью номер урока и запускаем ее
-                        intent.putExtra(WebActivity.EXTRA_NAME, holder.mLessonNumber);
-                        context.startActivity(intent);                        
-                        //((Activity) context).startActivityForResult(intent, 1);                     
-                    }
-                });
+            holder.mView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Context context = v.getContext();
+                    Intent intent = new Intent(context, WebActivity.class);
+                    // Передаем вебвью номер урока и запускаем ее
+                    intent.putExtra(WebActivity.EXTRA_NAME, holder.mLessonNumber);
+                    context.startActivity(intent);
+                    //((Activity) context).startActivityForResult(intent, 1);
+                }
+            });
         }
+
         // Определяем количество выводимых строк
         @Override
         public int getItemCount()

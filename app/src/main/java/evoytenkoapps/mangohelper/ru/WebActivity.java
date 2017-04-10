@@ -33,9 +33,11 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+
 import java.util.Map;
 import java.util.Arrays;
 import java.util.Random;
+
 import android.widget.TextView;
 //// progress webview
 //import android.app.ProgressDialog;
@@ -51,10 +53,10 @@ import android.webkit.WebChromeClient;
 public class WebActivity extends AppCompatActivity
 {
     public static final String EXTRA_NAME = "Lesson number";
-    String LessonUrl ="file:///android_asset/Site/Lessons/lsn1/lsn1_1.html";
+    String LessonUrl = "file:///android_asset/Site/Lessons/lsn1/lsn1_1.html";
     // ссылка на контекст для MakeToast
     Context activity;
-    String TAG= "WebActivity Logs";
+    String TAG = "WebActivity Logs";
     final int DIALOG_EXIT = 1;
     final int DIALOG_DEVICE_IP = 2;
 
@@ -76,8 +78,6 @@ public class WebActivity extends AppCompatActivity
 //        setSupportActionBar(toolbar);
 
 
-
-
         // При рефреше вебвью показывает тост с подсказкой. вместо загрузки страницы
 //        final SwipeRefreshLayout mySwipeWebView = (SwipeRefreshLayout) findViewById(masq.mh.ru.R.id.swip_web);
 //        mySwipeWebView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
@@ -96,7 +96,7 @@ public class WebActivity extends AppCompatActivity
         LessonNumber = getLessonNumber(intent.getIntExtra(EXTRA_NAME, 0));
         // Задаем титл номер урока
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setTitle("Урок №"+ LessonNumber);
+        getSupportActionBar().setTitle("Урок №" + LessonNumber);
         LessonUrl = "file:///android_asset/Site/Lessons/lsn" + LessonNumber + "/lsn" + LessonNumber + "_1.html";
 
         myWebView = (WebView) findViewById(R.id.webview);
@@ -120,13 +120,16 @@ public class WebActivity extends AppCompatActivity
                 LessonUrl = savedInstanceState.getString("Url");
             }
         }
-        myWebView.setWebChromeClient(new WebChromeClient() {});
-        myWebView.setWebViewClient(new WebViewClient() {
-                // Иначе будет также вызываться officesuite при открытии урока
-                public void onReceivedError(WebView view, int errorCode, String description, String failingUrl)
-                {
+        myWebView.setWebChromeClient(new WebChromeClient()
+        {
+        });
+        myWebView.setWebViewClient(new WebViewClient()
+        {
+            // Иначе будет также вызываться officesuite при открытии урока
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl)
+            {
 
-                }
+            }
 //
 //                @Override
 //                public void onPageStarted(WebView view, String url, Bitmap favicon)
@@ -134,24 +137,24 @@ public class WebActivity extends AppCompatActivity
 //                    super.onPageStarted(view, url, favicon);
 //                }
 
-                @Override
-                public void onPageFinished(WebView view, String url)
-                {
-                    super.onPageFinished(view, url);
+            @Override
+            public void onPageFinished(WebView view, String url)
+            {
+                super.onPageFinished(view, url);
 
-                    // Удаляем прогресс
-                    ((RelativeLayout) findViewById(R.id.activitywebRelativeLayout1)).setVisibility(RelativeLayout.INVISIBLE);
-                    fab.setVisibility(FloatingActionButton.VISIBLE);
-                    llBottomSheet.setVisibility(View.VISIBLE);
+                // Удаляем прогресс
+                ((RelativeLayout) findViewById(R.id.activitywebRelativeLayout1)).setVisibility(RelativeLayout.INVISIBLE);
+                fab.setVisibility(FloatingActionButton.VISIBLE);
+                llBottomSheet.setVisibility(View.VISIBLE);
 
 
-                    // Toast toast = Toast.makeText(WebActivity.this, getLessonsToastHelp(), Toast.LENGTH_LONG);
+                // Toast toast = Toast.makeText(WebActivity.this, getLessonsToastHelp(), Toast.LENGTH_LONG);
 
-                    //toast.show();
-                    MakeToast(getLessonsToastHelp());
+                //toast.show();
+                MakeToast(getLessonsToastHelp());
 
-                }
-            });
+            }
+        });
 
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -197,29 +200,31 @@ public class WebActivity extends AppCompatActivity
         bottomSheetBehavior.setState(bottomSheetBehavior.STATE_COLLAPSED);
 
         // set callback for changes
-        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-                @Override
-                public void onStateChanged(@NonNull View bottomSheet, int newState)
-                {
-                }
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback()
+        {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState)
+            {
+            }
 
-                @Override
-                // Чтобы фаб исчезал когда увеличиваешь боттомбар
-                public void onSlide(@NonNull View bottomSheet, float slideOffset)
-                {
-                    //fab.animate().scaleX(1 - slideOffset).scaleY(1 - slideOffset).setDuration(0).start();
-                }
-            });
+            @Override
+            // Чтобы фаб исчезал когда увеличиваешь боттомбар
+            public void onSlide(@NonNull View bottomSheet, float slideOffset)
+            {
+                //fab.animate().scaleX(1 - slideOffset).scaleY(1 - slideOffset).setDuration(0).start();
+            }
+        });
 
         // Клик на фаб показывает/ скрывает подсказки
-        fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view)
-                {
-                    // Показываем Toast с текстом последнего Toast при нажатии на fab
-                    MakeToast(ToastText);
+        fab.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                // Показываем Toast с текстом последнего Toast при нажатии на fab
+                MakeToast(ToastText);
 
-                    // Показывает / скрывает большую подсказку при нажании на fab
+                // Показывает / скрывает большую подсказку при нажании на fab
 //                    if (bottomSheetBehavior.getState() == 3)
 //                    {
 //                        bottomSheetBehavior.setState(bottomSheetBehavior.STATE_COLLAPSED);
@@ -228,36 +233,37 @@ public class WebActivity extends AppCompatActivity
 //                    {
 //                        bottomSheetBehavior.setState(bottomSheetBehavior.STATE_EXPANDED);
 //                    }
-                    //Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                }
-            });
+                //Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
     }
 
     //Создает текст из Lessons для основной подсказки
     String getLessonMainHelp()
     {
-        String result="Инструкция "+"\n" + "Урок №" + LessonNumber + ".\n";
+        String result = "Инструкция " + "\n" + "Урок №" + LessonNumber + ".\n";
         try
         {
             // Считаем общее количество строк подсказок данного урока и возвращаем их
-            for (int i=1; i < Lessons.sLessonsStrings[LessonNumber-1].length; i++)
+            for (int i = 1; i < Lessons.sLessonsStrings[LessonNumber - 1].length; i++)
             {
                 String stage = " " + LessonNumber + "." + i + ". ";
                 result = result + stage + Lessons.sLessonsStrings[LessonNumber - 1][i] + "\n";
             }
-        }
-        catch ( ArrayIndexOutOfBoundsException ex)
+        } catch (ArrayIndexOutOfBoundsException ex)
         {
             result = "";
         }
         return result;
-    };
+    }
+
+    ;
 
 
     //Ищет текст из Lessons для текущего Toast
     String getLessonsToastHelp()
     {
-        String result="";
+        String result = "";
         // String u = myWebView.getUrl();
         Uri uri = Uri.parse(myWebView.getUrl());
         String ur = uri.getLastPathSegment();
@@ -266,21 +272,22 @@ public class WebActivity extends AppCompatActivity
         int n = Integer.parseInt(stage);
         try
         {
-            result = LessonNumber + "."+ n +". " + Lessons.sLessonsStrings[LessonNumber - 1][n];
-        }
-        catch ( ArrayIndexOutOfBoundsException ex)
+            result = LessonNumber + "." + n + ". " + Lessons.sLessonsStrings[LessonNumber - 1][n];
+        } catch (ArrayIndexOutOfBoundsException ex)
         {
             result = "";
         }
 
         return result;
-    };
+    }
+
+    ;
 
     // Ищет первый не пройденный урок.
     // Если все уроки пройденны возвращает рандом
     int getLessonNumber(int extra)
     {
-        int result=0;
+        int result = 0;
         // Если пришел 0 значит нужно вернуть первый не пройденный урок
         if (extra == 0)
         {
@@ -288,8 +295,8 @@ public class WebActivity extends AppCompatActivity
             int key = 0;
             int size = MainActivity.sPrefLessons.getAll().size();
             // номера пройденных уроков
-            int keys[]= new int[size];
-            int i=0;
+            int keys[] = new int[size];
+            int i = 0;
             Map<String, ?> allEntries = MainActivity.sPrefLessons.getAll();
             // Определяем пройденные уроки
             for (Map.Entry<String, ?> entry : allEntries.entrySet())
@@ -300,8 +307,7 @@ public class WebActivity extends AppCompatActivity
                     key = Integer.parseInt(k);
                     keys[i] = key;
                     i++;
-                }
-                catch (NumberFormatException nfe)
+                } catch (NumberFormatException nfe)
                 {
                     result = 1;
                     break;
@@ -315,7 +321,7 @@ public class WebActivity extends AppCompatActivity
             if (keys.length != count)
             {
                 // Ищем меньший не пройденный
-                int j=0;
+                int j = 0;
                 for (; j < keys.length; j++)
                 {
                     // Если номер не равет номеру из пройденных уроков, то этот номер искомый урок
@@ -353,17 +359,21 @@ public class WebActivity extends AppCompatActivity
 
     // Обработчик нажатий меню ( переход по HTML страницам )
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
 
             case R.id.web_back:
-                if(myWebView.canGoBack()) {
+                if (myWebView.canGoBack())
+                {
                     myWebView.goBack();
                 }
                 return true;
 
             case R.id.web_forward:
-                if(myWebView.canGoForward()) {
+                if (myWebView.canGoForward())
+                {
                     myWebView.goForward();
                 }
                 return true;
@@ -390,10 +400,12 @@ public class WebActivity extends AppCompatActivity
     public class JavaScriptInterface
     {
         Context mContext;
+
         JavaScriptInterface(Context c)
         {
             this.mContext = c;
         }
+
         // Вызываем диалог при завершении урока
         @JavascriptInterface
         public void showDialogFromHTML()
@@ -409,30 +421,33 @@ public class WebActivity extends AppCompatActivity
 
         // Отображение подсказки для текущего этапа урока
         @JavascriptInterface
-        public void showToastFromHTML(int n){
+        public void showToastFromHTML(int n)
+        {
             // n - номер этапа в рамках урока
-            String str = LessonNumber +"."+n+". "+Lessons.sLessonsStrings[LessonNumber-1][n];
+            String str = LessonNumber + "." + n + ". " + Lessons.sLessonsStrings[LessonNumber - 1][n];
             MakeToast(str);
         }
 
         // Отображение диалога что нужно узнать IP оборудования и как это сделать.
         @JavascriptInterface
-        public void showDialogSetupDeviceFromHTML(){
+        public void showDialogSetupDeviceFromHTML()
+        {
             showDialog(DIALOG_DEVICE_IP);
         }
     }
+
     // Сохраняем что урок пройден
     void saveLesson()
     {
-        SharedPreferences sPref =  getSharedPreferences("LessonsResults" , MODE_PRIVATE);
+        SharedPreferences sPref = getSharedPreferences("LessonsResults", MODE_PRIVATE);
         SharedPreferences.Editor ed = sPref.edit();
         // 1 урок пройден
-        ed.putString(LessonNumber + "" , "1");
+        ed.putString(LessonNumber + "", "1");
         ed.commit();
     }
 
 
-// Создаем диалог после завершении урока
+    // Создаем диалог после завершении урока
     protected Dialog onCreateDialog(int id)
     {
         if (id == DIALOG_EXIT)
@@ -441,13 +456,12 @@ public class WebActivity extends AppCompatActivity
             String t1 = getResources().getString(R.string.exit);
             String t2 = " №" + LessonNumber + ". ";
             // Последний элемент текущего урока в Lessons.sLessonsStrings
-            String t3 ="";
-            int end = Lessons.sLessonsStrings[LessonNumber-1].length-1;
+            String t3 = "";
+            int end = Lessons.sLessonsStrings[LessonNumber - 1].length - 1;
             try
             {
                 t3 = Lessons.sLessonsStrings[LessonNumber - 1][end];
-            }
-            catch (ArrayIndexOutOfBoundsException ex)
+            } catch (ArrayIndexOutOfBoundsException ex)
             {
                 t3 = "";
             }
@@ -461,7 +475,7 @@ public class WebActivity extends AppCompatActivity
             // иконка
             //adb.setIcon(android.R.drawable.ic_dialog_info);
             // кнопка след. урок
-            adb.setPositiveButton(R.string.nextlesson , myClickListener);
+            adb.setPositiveButton(R.string.nextlesson, myClickListener);
             // кнопка список уроков
             adb.setNegativeButton(R.string.listoflessons, myClickListener);
 
@@ -472,23 +486,27 @@ public class WebActivity extends AppCompatActivity
         {
             final AlertDialog.Builder adb = new AlertDialog.Builder(this);
             String t = "5.6 " + Lessons.sLessonsStrings[4][6];
-            int end = Lessons.sLessonsStrings[LessonNumber-1].length-1;
+            int end = Lessons.sLessonsStrings[LessonNumber - 1].length - 1;
             adb.setMessage(t);
             // Нельзя закрыть диалог
             adb.setCancelable(false);
             // кнопка след. урок
-            adb.setPositiveButton("Ok", new Dialog.OnClickListener(){
+            adb.setPositiveButton("Ok", new Dialog.OnClickListener()
+            {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(DialogInterface dialog, int which)
+                {
                     switch (which)
                     {
                         // Выбор след. урок
                         case Dialog.BUTTON_POSITIVE:
                             //
                             dialog.dismiss();
-                            runOnUiThread(new Runnable() {
+                            runOnUiThread(new Runnable()
+                            {
                                 @Override
-                                public void run() {
+                                public void run()
+                                {
                                     final WebView webView = (WebView) findViewById(R.id.webview);
                                     myWebView.loadUrl("file:///android_asset/Site/Lessons/lsn5/lsn5_7.html");
                                 }
@@ -506,12 +524,13 @@ public class WebActivity extends AppCompatActivity
 
 
     //Нажатия в диалоге при завершении урока
-    Dialog.OnClickListener myClickListener = new  Dialog.OnClickListener() {
+    Dialog.OnClickListener myClickListener = new Dialog.OnClickListener()
+    {
         public void onClick(DialogInterface dialog, int which)
         {
             switch (which)
             {
-                    // Выбор след. урок
+                // Выбор след. урок
                 case Dialog.BUTTON_POSITIVE:
                     // Вызываем новое вебактивиты
                     // Передаем ей номер урока
@@ -523,7 +542,7 @@ public class WebActivity extends AppCompatActivity
                     finish();
                     break;
 
-                    // Возврат в меню
+                // Возврат в меню
                 case Dialog.BUTTON_NEGATIVE:
                     WebActivity.this.finish();
                     break;
@@ -550,53 +569,54 @@ public class WebActivity extends AppCompatActivity
     // Создаем собственный тоаст, с собственным дизайном
     void MakeToast(String strToast)
     {
-            //   new CustomToast(activity, strToast).show();
+        //   new CustomToast(activity, strToast).show();
 
         // Сохраняем текст подсказки , чтобы он отображался при нажати на fab
-            ToastText = strToast;
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            final AlertDialog dialog;
+        ToastText = strToast;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog dialog;
 
-            LayoutInflater inflater = (LayoutInflater) activity.getSystemService(android.content.Context.LAYOUT_INFLATER_SERVICE);
-            //this.getLayoutInflater();
+        LayoutInflater inflater = (LayoutInflater) activity.getSystemService(android.content.Context.LAYOUT_INFLATER_SERVICE);
+        //this.getLayoutInflater();
 
-            View layout = inflater.inflate(R.layout.toast, null);
-            builder.setView(layout, 0, 0, 0, 0);
-            builder.setInverseBackgroundForced(true);
-            TextView tv = (TextView) layout.findViewById(R.id.toastText);
-            tv.setText(strToast);
-            tv.setShadowLayer(0,0,0,0);
+        View layout = inflater.inflate(R.layout.toast, null);
+        builder.setView(layout, 0, 0, 0, 0);
+        builder.setInverseBackgroundForced(true);
+        TextView tv = (TextView) layout.findViewById(R.id.toastText);
+        tv.setText(strToast);
+        tv.setShadowLayer(0, 0, 0, 0);
 
-            // builder.setMessage(strToast);
+        // builder.setMessage(strToast);
 
-            dialog = builder.create();
-            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
-
-            //dialog.setView(layout, 0, 0, 0, 0);
-            //dialog.setContentView(layout);
-            // dialog.setContentView(layout);
-            //dialog.getWindow().setGravity(Gravity.TOP);
-            //dialog.getWindow().setSoftInputMode( android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-            //dialog.setContentView(layout);
-            dialog.show();
-            dialog.getWindow().getAttributes().verticalMargin=0.2F;
-
-            layout.setOnTouchListener( new View.OnTouchListener(){
-
-                @Override
-                public boolean onTouch(View p1, MotionEvent p2)
-                {
-                    // TODO: Implement this method
-                    dialog.dismiss();
-                    return false;
-                }
+        dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
 
-            });
+        //dialog.setView(layout, 0, 0, 0, 0);
+        //dialog.setContentView(layout);
+        // dialog.setContentView(layout);
+        //dialog.getWindow().setGravity(Gravity.TOP);
+        //dialog.getWindow().setSoftInputMode( android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        //dialog.setContentView(layout);
+        dialog.show();
+        dialog.getWindow().getAttributes().verticalMargin = 0.2F;
 
-            // Удоляет темный фон диалога
-            dialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        layout.setOnTouchListener(new View.OnTouchListener()
+        {
+
+            @Override
+            public boolean onTouch(View p1, MotionEvent p2)
+            {
+                // TODO: Implement this method
+                dialog.dismiss();
+                return false;
+            }
+
+
+        });
+
+        // Удоляет темный фон диалога
+        dialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
 
 //        // Задам стиль тоста
 //        View view;

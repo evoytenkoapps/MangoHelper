@@ -147,25 +147,25 @@ writeBlockSubmenu();
 <tr>
 <td  class="label">Имя для входа в систему:</td>
 <td class="rightSide">
-<input id="lsn5_11_2" onchange="document.getElementById('lsn5_11_2').style='border: transparent'; document.getElementById('lsn5_11_3').disabled= false; flashBorder('lsn5_11_3');" onclick=" showToastFromHTML(12);"  disabled="disabled" type="text" maxlength="32" size="32" class="textfield edit_250" value="" name="sip_login_id" id="sip_login_id" onkeypress="return (isValidG0G1Char(event) &amp;&amp; checkUTF8Bytes(this, event, 32));">
+<input id="lsn5_11_2" onchange="document.getElementById('lsn5_11_2').style='border: transparent'; document.getElementById('lsn5_11_3').disabled= false; flashBorder('lsn5_11_3');" onclick=" showToastFromHTML(12);"  disabled="disabled" type="text" maxlength="32" size="32" class="textfield edit_250" value="" placeholder="sergey" name="sip_login_id" id="sip_login_id" onkeypress="return (isValidG0G1Char(event) &amp;&amp; checkUTF8Bytes(this, event, 32));">
 </td>
 </tr>
 <tr>
 <td class="label">Пароль для входа в систему:</td>
 <td class="rightSide">
-<input id="lsn5_11_3" onchange=" document.getElementById('lsn5_11_3').style='border: transparent'; document.getElementById('lsn5_11_4').disabled= false; flashBorder('lsn5_11_4');" onclick=" showToastFromHTML(13);" disabled="disabled" type="password" maxlength="32" size="32" class="textfield edit_250" value="" name="sip_password_2" id="sip_password_2" onkeydown="PasswordEditedState(event);" onkeypress="return (isValidG0G1Char(event) &amp;&amp; checkG0G1Bytes(this, event, 32));" onchange="setPasswordEditedState(); copyPassword();">
+<input id="lsn5_11_3" onchange=" document.getElementById('lsn5_11_3').style='border: transparent'; document.getElementById('lsn5_11_4').disabled= false; flashBorder('lsn5_11_4');" onclick=" showToastFromHTML(13);" disabled="disabled" type="password" maxlength="32" size="32" class="textfield edit_250" value="" placeholder="password" name="sip_password_2" id="sip_password_2" onkeydown="PasswordEditedState(event);" onkeypress="return (isValidG0G1Char(event) &amp;&amp; checkG0G1Bytes(this, event, 32));" onchange="setPasswordEditedState(); copyPassword();">
 </td>
 </tr>
 <tr>
 <td class="label">Имя пользоват.:</td>
 <td class="rightSide">
-<input id="lsn5_11_4" onchange=" document.getElementById('lsn5_11_4').style='border: transparent'; document.getElementById('lsn5_11_5').disabled= false; flashBorder('lsn5_11_5');" onclick=" showToastFromHTML(14);" disabled="disabled"  type="text" maxlength="32" size="32" class="textfield edit_250" value="" name="sip_user_id" id="sip_user_id" onkeypress="return (isValidG0G1Char(event) &amp;&amp; checkG0G1Bytes(this, event, 32));">
+<input id="lsn5_11_4" onchange=" document.getElementById('lsn5_11_4').style='border: transparent'; document.getElementById('lsn5_11_5').disabled= false; flashBorder('lsn5_11_5');" onclick=" showToastFromHTML(14);" disabled="disabled"  type="text" maxlength="32" size="32" class="textfield edit_250" value="" placeholder="segey" name="sip_user_id" id="sip_user_id" onkeypress="return (isValidG0G1Char(event) &amp;&amp; checkG0G1Bytes(this, event, 32));">
 </td>
 </tr>
 <tr>
 <td class="label">Отображ. имя:</td>
 <td class="rightSide">
-<input id="lsn5_11_5" onchange=" document.getElementById('lsn5_11_5').style='border: transparent'; document.getElementById('lsn5_11_6').disabled= false; flashBorder('lsn5_11_6'); " onclick="showToastFromHTML(15);" disabled="disabled"  type="text" maxlength="32" size="32" class="textfield edit_250" value="" name="sip_display_name" id="sip_display_name" onkeypress="return (isValidG0G1Char(event) &amp;&amp; checkG0G1Bytes(this, event, 32));">
+<input id="lsn5_11_5" onchange=" document.getElementById('lsn5_11_5').style='border: transparent'; document.getElementById('lsn5_11_6').disabled= false; flashBorder('lsn5_11_6'); " onclick="showToastFromHTML(15);" disabled="disabled"  type="text" maxlength="32" size="32" class="textfield edit_250" value="" placeholder="sergey" name="sip_display_name" id="sip_display_name" onkeypress="return (isValidG0G1Char(event) &amp;&amp; checkG0G1Bytes(this, event, 32));">
 </td>
 </tr>
 <!-- fixes the width of the first column -->
@@ -215,7 +215,7 @@ writeBlockSubmenu();
 <td class="label">Домен:</td>
 <td class="rightSide">
   <div class="edit_250">
-	  <input id="lsn5_11_6" onchange=" document.getElementById('lsn5_11_6').style='border: transparent'; document.getElementById('lsn5_11_7').disabled= false; flashBorder('lsn5_11_7');" onclick=" showToastFromHTML(16);" disabled="disabled"  type="text" maxlength="74" size="32" class="textfield edit_250" value="" name="sip_domain" id="sip_domain" onkeypress="return isValidSipDomainChar(event);">
+	  <input id="lsn5_11_6" onchange=" document.getElementById('lsn5_11_6').style='border: transparent'; document.getElementById('lsn5_11_7').disabled= false; flashBorder('lsn5_11_7');" onclick=" showToastFromHTML(16);" disabled="disabled"  type="text" maxlength="74" size="32" class="textfield edit_250" value="" placeholder="vpbx400070052.mangosip.ru" name="sip_domain" id="sip_domain" onkeypress="return isValidSipDomainChar(event);">
   </div>
 </td>
 </tr>
@@ -223,7 +223,7 @@ writeBlockSubmenu();
 <td class="label">Адрес прокси-сервера:</td>
 <td class="rightSide">
   <div class="edit_250">
-	  <input id="lsn5_11_7" onchange=" document.getElementById('lsn5_11_7').style='border: transparent'; document.getElementById('lsn5_11_8').disabled= false; flashBorder('lsn5_11_8');" onclick=" showToastFromHTML(17);" disabled="disabled"  type="text" maxlength="74" size="32" class="textfield edit_250" value="" name="sip_server" id="sip_server" onkeypress="return isValidSipDomainChar(event);">
+	  <input id="lsn5_11_7" onchange=" document.getElementById('lsn5_11_7').style='border: transparent'; document.getElementById('lsn5_11_8').disabled= false; flashBorder('lsn5_11_8');" onclick=" showToastFromHTML(17);" disabled="disabled"  type="text" maxlength="74" size="320" class="textfield edit_250" value="" placeholder="vpbx400070052.mangosip.ru" name="sip_server" id="sip_server" onkeypress="return isValidSipDomainChar(event);">
   </div>
 </td>
 </tr>
@@ -235,7 +235,7 @@ writeBlockSubmenu();
 <td class="label">Сервер регистрации:</td>
 <td class="rightSide">
   <div class="edit_250">
-	  <input type="text" id="lsn5_11_9" onchange=" document.getElementById('lsn5_11_9').style='border: transparent'; document.getElementById('lsn5_11_10').disabled= false; flashBorder('lsn5_11_10');" onclick=" showToastFromHTML(19);" disabled="disabled"  maxlength="74" size="32" class="textfield edit_250" value="" name="sip_registrar" id="sip_registrar" onkeypress="return isValidSipDomainChar(event);">
+	  <input type="text" id="lsn5_11_9" onchange=" document.getElementById('lsn5_11_9').style='border: transparent'; document.getElementById('lsn5_11_10').disabled= false; flashBorder('lsn5_11_10');" onclick=" showToastFromHTML(19);" disabled="disabled"  maxlength="74" size="32" class="textfield edit_250" value="" placeholder="vpbx400070052.mangosip.ru" name="sip_registrar" id="sip_registrar" onkeypress="return isValidSipDomainChar(event);">
   </div>
 </td>
 </tr>
