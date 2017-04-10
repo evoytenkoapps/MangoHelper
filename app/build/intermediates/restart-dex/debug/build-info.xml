@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86_64,x86"
+    api-level="23"
+    density="xxhdpi"
+    format="8"
+    plugin-version="2.2.3"
+    timestamp="94998274222929"
+    token="7782175843816653964"
+    verifier="FULL_BUILD_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="5260" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="4341" />
+    <task
+        name="verifier"
+        duration="2189" />
+
+    <artifact
+        location="\\corp.mango.ru\users\profiles\evv\Desktop\MangoHelper\Site\Mango Helper\cheesesquare-master\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
+
+    <build
+        timestamp="94998274222929"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="\\corp.mango.ru\users\profiles\evv\Desktop\MangoHelper\Site\Mango Helper\cheesesquare-master\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>

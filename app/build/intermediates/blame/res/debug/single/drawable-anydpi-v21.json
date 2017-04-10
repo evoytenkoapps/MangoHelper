@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "\\\\corp.mango.ru\\users\\profiles\\evv\\Desktop\\MangoHelper\\Site\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility_off.xml",
+        "source": "\\\\corp.mango.ru\\users\\profiles\\evv\\Desktop\\MangoHelper\\Site\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.2.0\\res\\drawable-anydpi-v21\\design_ic_visibility_off.xml"
+    },
+    {
+        "merged": "D:\\Repo\\MangoHelper\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility_off.xml",
+        "source": "D:\\Repo\\MangoHelper\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\26.0.0-alpha1\\res\\drawable-anydpi-v21\\design_ic_visibility_off.xml"
+    },
+    {
+        "merged": "D:\\Repo\\MangoHelper\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility.xml",
+        "source": "D:\\Repo\\MangoHelper\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\26.0.0-alpha1\\res\\drawable-anydpi-v21\\design_ic_visibility.xml"
+    },
+    {
+        "merged": "\\\\corp.mango.ru\\users\\profiles\\evv\\Desktop\\MangoHelper\\Site\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility.xml",
+        "source": "\\\\corp.mango.ru\\users\\profiles\\evv\\Desktop\\MangoHelper\\Site\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.2.0\\res\\drawable-anydpi-v21\\design_ic_visibility.xml"
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "\\\\corp.mango.ru\\users\\profiles\\evv\\Desktop\\MangoHelper\\Site\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "\\\\corp.mango.ru\\users\\profiles\\evv\\Desktop\\MangoHelper\\Site\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "\\\\corp.mango.ru\\users\\profiles\\evv\\Desktop\\MangoHelper\\Site\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "\\\\corp.mango.ru\\users\\profiles\\evv\\Desktop\\MangoHelper\\Site\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "D:\\Repo\\MangoHelper\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "D:\\Repo\\MangoHelper\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\26.0.0-alpha1\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "D:\\Repo\\MangoHelper\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "D:\\Repo\\MangoHelper\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\26.0.0-alpha1\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    }
+]

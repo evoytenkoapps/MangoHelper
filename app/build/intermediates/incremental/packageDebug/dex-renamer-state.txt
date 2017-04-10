@@ -1,0 +1,7 @@
+#Tue Mar 14 12:50:37 MSK 2017
+base.0=\\\\corp.mango.ru\\users\\profiles\\evv\\Desktop\\MangoHelper\\Site\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_e01dd61721c83db27b7101e85744e2443505e110
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=\\\\corp.mango.ru\\users\\profiles\\evv\\Desktop\\MangoHelper\\Site\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_ef3cba4bf21f221761f7c902a616433bd9e4b10e\\classes.dex
+base.1=\\\\corp.mango.ru\\users\\profiles\\evv\\Desktop\\MangoHelper\\Site\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_ef3cba4bf21f221761f7c902a616433bd9e4b10e
+file.0=\\\\corp.mango.ru\\users\\profiles\\evv\\Desktop\\MangoHelper\\Site\\Mango Helper\\cheesesquare-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_e01dd61721c83db27b7101e85744e2443505e110\\classes.dex
