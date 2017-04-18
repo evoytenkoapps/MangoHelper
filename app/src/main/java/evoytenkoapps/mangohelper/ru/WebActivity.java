@@ -400,23 +400,9 @@ public class WebActivity extends AppCompatActivity
     public class JavaScriptInterface
     {
         Context mContext;
-
         JavaScriptInterface(Context c)
         {
             this.mContext = c;
-        }
-
-        // Вызываем диалог при завершении урока
-        @JavascriptInterface
-        public void showDialogFromHTML()
-        {
-            // Сохраняем что урок пройден
-            saveLesson();
-            // LessonsListFragment.rv.getAdapter().notifyItemRangeChanged(0,LessonsListFragment.rv.getAdapter().getItemCount());
-            // Диалог без картинок по умолчанию
-            showDialog(DIALOG_EXIT);
-            //Диалог с картинками
-            //displayDialogImg();
         }
 
         // Отображение подсказки для текущего этапа урока
@@ -427,6 +413,18 @@ public class WebActivity extends AppCompatActivity
             String str = LessonNumber + "." + n + ". " + Lessons.sLessonsStrings[LessonNumber - 1][n];
             MakeToast(str);
         }
+
+        // Диалог после завершении урока
+        @JavascriptInterface
+        public void showDialogFromHTML()
+        {
+            // Сохраняем что урок пройден
+            saveLesson();
+            // Диалог без картинок по умолчанию
+            showDialog(DIALOG_EXIT);
+        }
+
+
 
         // Отображение диалога что нужно узнать IP оборудования и как это сделать.
         @JavascriptInterface
@@ -453,20 +451,22 @@ public class WebActivity extends AppCompatActivity
         if (id == DIALOG_EXIT)
         {
             AlertDialog.Builder adb = new AlertDialog.Builder(this);
-            String t1 = getResources().getString(R.string.exit);
-            String t2 = " №" + LessonNumber + ". ";
+            String t1 = "Поздравляю! ";
+
             // Последний элемент текущего урока в Lessons.sLessonsStrings
-            String t3 = "";
-            int end = Lessons.sLessonsStrings[LessonNumber - 1].length - 1;
+            String t2 = "";
+
             try
             {
-                t3 = Lessons.sLessonsStrings[LessonNumber - 1][end];
+                // Последняя строка в массиве данного урока
+                int end = Lessons.sLessonsStrings[LessonNumber - 1].length - 1;
+                t2 = Lessons.sLessonsStrings[LessonNumber - 1][end]+" ";
             } catch (ArrayIndexOutOfBoundsException ex)
             {
-                t3 = "";
+                t2 = "";
             }
+            String t3 = "Вы успешно прошли урок №" + LessonNumber + ". ";
 
-            //adb.setTitle("");
             adb.setMessage(t1 + t2 + t3);
             // Нельзя закрыть диалог
             adb.setCancelable(false);
